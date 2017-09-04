@@ -222,47 +222,47 @@ void   new_enemy__free_unpacked
   assert(message->base.descriptor == &new_enemy__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-void   start_require__init
-                     (StartRequire         *message)
+void   start_req__init
+                     (StartReq         *message)
 {
-  static StartRequire init_value = START_REQUIRE__INIT;
+  static StartReq init_value = START_REQ__INIT;
   *message = init_value;
 }
-size_t start_require__get_packed_size
-                     (const StartRequire *message)
+size_t start_req__get_packed_size
+                     (const StartReq *message)
 {
-  assert(message->base.descriptor == &start_require__descriptor);
+  assert(message->base.descriptor == &start_req__descriptor);
   return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
 }
-size_t start_require__pack
-                     (const StartRequire *message,
+size_t start_req__pack
+                     (const StartReq *message,
                       uint8_t       *out)
 {
-  assert(message->base.descriptor == &start_require__descriptor);
+  assert(message->base.descriptor == &start_req__descriptor);
   return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
 }
-size_t start_require__pack_to_buffer
-                     (const StartRequire *message,
+size_t start_req__pack_to_buffer
+                     (const StartReq *message,
                       ProtobufCBuffer *buffer)
 {
-  assert(message->base.descriptor == &start_require__descriptor);
+  assert(message->base.descriptor == &start_req__descriptor);
   return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
 }
-StartRequire *
-       start_require__unpack
+StartReq *
+       start_req__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data)
 {
-  return (StartRequire *)
-     protobuf_c_message_unpack (&start_require__descriptor,
+  return (StartReq *)
+     protobuf_c_message_unpack (&start_req__descriptor,
                                 allocator, len, data);
 }
-void   start_require__free_unpacked
-                     (StartRequire *message,
+void   start_req__free_unpacked
+                     (StartReq *message,
                       ProtobufCAllocator *allocator)
 {
-  assert(message->base.descriptor == &start_require__descriptor);
+  assert(message->base.descriptor == &start_req__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
 void   start_rsp__init
@@ -658,7 +658,7 @@ const ProtobufCMessageDescriptor new_enemy__descriptor =
   (ProtobufCMessageInit) new_enemy__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor start_require__field_descriptors[1] =
+static const ProtobufCFieldDescriptor start_req__field_descriptors[1] =
 {
   {
     "start",
@@ -666,34 +666,34 @@ static const ProtobufCFieldDescriptor start_require__field_descriptors[1] =
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_BOOL,
     0,   /* quantifier_offset */
-    offsetof(StartRequire, start),
+    offsetof(StartReq, start),
     NULL,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
 };
-static const unsigned start_require__field_indices_by_name[] = {
+static const unsigned start_req__field_indices_by_name[] = {
   0,   /* field[0] = start */
 };
-static const ProtobufCIntRange start_require__number_ranges[1 + 1] =
+static const ProtobufCIntRange start_req__number_ranges[1 + 1] =
 {
   { 1, 0 },
   { 0, 1 }
 };
-const ProtobufCMessageDescriptor start_require__descriptor =
+const ProtobufCMessageDescriptor start_req__descriptor =
 {
   PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "start_require",
-  "StartRequire",
-  "StartRequire",
+  "start_req",
+  "StartReq",
+  "StartReq",
   "",
-  sizeof(StartRequire),
+  sizeof(StartReq),
   1,
-  start_require__field_descriptors,
-  start_require__field_indices_by_name,
-  1,  start_require__number_ranges,
-  (ProtobufCMessageInit) start_require__init,
+  start_req__field_descriptors,
+  start_req__field_indices_by_name,
+  1,  start_req__number_ranges,
+  (ProtobufCMessageInit) start_req__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
 static const ProtobufCFieldDescriptor start_rsp__field_descriptors[1] =

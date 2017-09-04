@@ -20,7 +20,7 @@ typedef struct _LoginReq LoginReq;
 typedef struct _LoginRsp LoginRsp;
 typedef struct _EnemyMsg EnemyMsg;
 typedef struct _NewEnemy NewEnemy;
-typedef struct _StartRequire StartRequire;
+typedef struct _StartReq StartReq;
 typedef struct _StartRsp StartRsp;
 typedef struct _LoginEnd LoginEnd;
 
@@ -89,13 +89,13 @@ struct  _NewEnemy
     , 0, 0, 0 }
 
 
-struct  _StartRequire
+struct  _StartReq
 {
   ProtobufCMessage base;
   protobuf_c_boolean start;
 };
-#define START_REQUIRE__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&start_require__descriptor) \
+#define START_REQ__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&start_req__descriptor) \
     , 0 }
 
 
@@ -214,24 +214,24 @@ NewEnemy *
 void   new_enemy__free_unpacked
                      (NewEnemy *message,
                       ProtobufCAllocator *allocator);
-/* StartRequire methods */
-void   start_require__init
-                     (StartRequire         *message);
-size_t start_require__get_packed_size
-                     (const StartRequire   *message);
-size_t start_require__pack
-                     (const StartRequire   *message,
+/* StartReq methods */
+void   start_req__init
+                     (StartReq         *message);
+size_t start_req__get_packed_size
+                     (const StartReq   *message);
+size_t start_req__pack
+                     (const StartReq   *message,
                       uint8_t             *out);
-size_t start_require__pack_to_buffer
-                     (const StartRequire   *message,
+size_t start_req__pack_to_buffer
+                     (const StartReq   *message,
                       ProtobufCBuffer     *buffer);
-StartRequire *
-       start_require__unpack
+StartReq *
+       start_req__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data);
-void   start_require__free_unpacked
-                     (StartRequire *message,
+void   start_req__free_unpacked
+                     (StartReq *message,
                       ProtobufCAllocator *allocator);
 /* StartRsp methods */
 void   start_rsp__init
@@ -288,8 +288,8 @@ typedef void (*EnemyMsg_Closure)
 typedef void (*NewEnemy_Closure)
                  (const NewEnemy *message,
                   void *closure_data);
-typedef void (*StartRequire_Closure)
-                 (const StartRequire *message,
+typedef void (*StartReq_Closure)
+                 (const StartReq *message,
                   void *closure_data);
 typedef void (*StartRsp_Closure)
                  (const StartRsp *message,
@@ -308,7 +308,7 @@ extern const ProtobufCMessageDescriptor login_req__descriptor;
 extern const ProtobufCMessageDescriptor login_rsp__descriptor;
 extern const ProtobufCMessageDescriptor enemy_msg__descriptor;
 extern const ProtobufCMessageDescriptor new_enemy__descriptor;
-extern const ProtobufCMessageDescriptor start_require__descriptor;
+extern const ProtobufCMessageDescriptor start_req__descriptor;
 extern const ProtobufCMessageDescriptor start_rsp__descriptor;
 extern const ProtobufCMessageDescriptor login_end__descriptor;
 
