@@ -93,49 +93,6 @@ void   login_req__free_unpacked
   assert(message->base.descriptor == &login_req__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-void   connect_req__init
-                     (ConnectReq         *message)
-{
-  static ConnectReq init_value = CONNECT_REQ__INIT;
-  *message = init_value;
-}
-size_t connect_req__get_packed_size
-                     (const ConnectReq *message)
-{
-  assert(message->base.descriptor == &connect_req__descriptor);
-  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
-}
-size_t connect_req__pack
-                     (const ConnectReq *message,
-                      uint8_t       *out)
-{
-  assert(message->base.descriptor == &connect_req__descriptor);
-  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
-}
-size_t connect_req__pack_to_buffer
-                     (const ConnectReq *message,
-                      ProtobufCBuffer *buffer)
-{
-  assert(message->base.descriptor == &connect_req__descriptor);
-  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
-}
-ConnectReq *
-       connect_req__unpack
-                     (ProtobufCAllocator  *allocator,
-                      size_t               len,
-                      const uint8_t       *data)
-{
-  return (ConnectReq *)
-     protobuf_c_message_unpack (&connect_req__descriptor,
-                                allocator, len, data);
-}
-void   connect_req__free_unpacked
-                     (ConnectReq *message,
-                      ProtobufCAllocator *allocator)
-{
-  assert(message->base.descriptor == &connect_req__descriptor);
-  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
-}
 void   login_rsp__init
                      (LoginRsp         *message)
 {
@@ -177,49 +134,6 @@ void   login_rsp__free_unpacked
                       ProtobufCAllocator *allocator)
 {
   assert(message->base.descriptor == &login_rsp__descriptor);
-  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
-}
-void   connect_rsp__init
-                     (ConnectRsp         *message)
-{
-  static ConnectRsp init_value = CONNECT_RSP__INIT;
-  *message = init_value;
-}
-size_t connect_rsp__get_packed_size
-                     (const ConnectRsp *message)
-{
-  assert(message->base.descriptor == &connect_rsp__descriptor);
-  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
-}
-size_t connect_rsp__pack
-                     (const ConnectRsp *message,
-                      uint8_t       *out)
-{
-  assert(message->base.descriptor == &connect_rsp__descriptor);
-  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
-}
-size_t connect_rsp__pack_to_buffer
-                     (const ConnectRsp *message,
-                      ProtobufCBuffer *buffer)
-{
-  assert(message->base.descriptor == &connect_rsp__descriptor);
-  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
-}
-ConnectRsp *
-       connect_rsp__unpack
-                     (ProtobufCAllocator  *allocator,
-                      size_t               len,
-                      const uint8_t       *data)
-{
-  return (ConnectRsp *)
-     protobuf_c_message_unpack (&connect_rsp__descriptor,
-                                allocator, len, data);
-}
-void   connect_rsp__free_unpacked
-                     (ConnectRsp *message,
-                      ProtobufCAllocator *allocator)
-{
-  assert(message->base.descriptor == &connect_rsp__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
 void   enemy_msg__init
@@ -308,47 +222,90 @@ void   new_enemy__free_unpacked
   assert(message->base.descriptor == &new_enemy__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-void   game_start__init
-                     (GameStart         *message)
+void   start_require__init
+                     (StartRequire         *message)
 {
-  static GameStart init_value = GAME_START__INIT;
+  static StartRequire init_value = START_REQUIRE__INIT;
   *message = init_value;
 }
-size_t game_start__get_packed_size
-                     (const GameStart *message)
+size_t start_require__get_packed_size
+                     (const StartRequire *message)
 {
-  assert(message->base.descriptor == &game_start__descriptor);
+  assert(message->base.descriptor == &start_require__descriptor);
   return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
 }
-size_t game_start__pack
-                     (const GameStart *message,
+size_t start_require__pack
+                     (const StartRequire *message,
                       uint8_t       *out)
 {
-  assert(message->base.descriptor == &game_start__descriptor);
+  assert(message->base.descriptor == &start_require__descriptor);
   return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
 }
-size_t game_start__pack_to_buffer
-                     (const GameStart *message,
+size_t start_require__pack_to_buffer
+                     (const StartRequire *message,
                       ProtobufCBuffer *buffer)
 {
-  assert(message->base.descriptor == &game_start__descriptor);
+  assert(message->base.descriptor == &start_require__descriptor);
   return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
 }
-GameStart *
-       game_start__unpack
+StartRequire *
+       start_require__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data)
 {
-  return (GameStart *)
-     protobuf_c_message_unpack (&game_start__descriptor,
+  return (StartRequire *)
+     protobuf_c_message_unpack (&start_require__descriptor,
                                 allocator, len, data);
 }
-void   game_start__free_unpacked
-                     (GameStart *message,
+void   start_require__free_unpacked
+                     (StartRequire *message,
                       ProtobufCAllocator *allocator)
 {
-  assert(message->base.descriptor == &game_start__descriptor);
+  assert(message->base.descriptor == &start_require__descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
+void   start_rsp__init
+                     (StartRsp         *message)
+{
+  static StartRsp init_value = START_RSP__INIT;
+  *message = init_value;
+}
+size_t start_rsp__get_packed_size
+                     (const StartRsp *message)
+{
+  assert(message->base.descriptor == &start_rsp__descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t start_rsp__pack
+                     (const StartRsp *message,
+                      uint8_t       *out)
+{
+  assert(message->base.descriptor == &start_rsp__descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t start_rsp__pack_to_buffer
+                     (const StartRsp *message,
+                      ProtobufCBuffer *buffer)
+{
+  assert(message->base.descriptor == &start_rsp__descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+StartRsp *
+       start_rsp__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data)
+{
+  return (StartRsp *)
+     protobuf_c_message_unpack (&start_rsp__descriptor,
+                                allocator, len, data);
+}
+void   start_rsp__free_unpacked
+                     (StartRsp *message,
+                      ProtobufCAllocator *allocator)
+{
+  assert(message->base.descriptor == &start_rsp__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
 void   login_end__init
@@ -446,7 +403,7 @@ static const ProtobufCIntRange hero_msg__number_ranges[1 + 1] =
 const ProtobufCMessageDescriptor hero_msg__descriptor =
 {
   PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "Hero_msg",
+  "hero_msg",
   "HeroMsg",
   "HeroMsg",
   "",
@@ -484,7 +441,7 @@ static const ProtobufCIntRange login_req__number_ranges[1 + 1] =
 const ProtobufCMessageDescriptor login_req__descriptor =
 {
   PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "Login_req",
+  "login_req",
   "LoginReq",
   "LoginReq",
   "",
@@ -494,24 +451,6 @@ const ProtobufCMessageDescriptor login_req__descriptor =
   login_req__field_indices_by_name,
   1,  login_req__number_ranges,
   (ProtobufCMessageInit) login_req__init,
-  NULL,NULL,NULL    /* reserved[123] */
-};
-#define connect_req__field_descriptors NULL
-#define connect_req__field_indices_by_name NULL
-#define connect_req__number_ranges NULL
-const ProtobufCMessageDescriptor connect_req__descriptor =
-{
-  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "Connect_req",
-  "ConnectReq",
-  "ConnectReq",
-  "",
-  sizeof(ConnectReq),
-  0,
-  connect_req__field_descriptors,
-  connect_req__field_indices_by_name,
-  0,  connect_req__number_ranges,
-  (ProtobufCMessageInit) connect_req__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
 static const ProtobufCFieldDescriptor login_rsp__field_descriptors[4] =
@@ -579,7 +518,7 @@ static const ProtobufCIntRange login_rsp__number_ranges[1 + 1] =
 const ProtobufCMessageDescriptor login_rsp__descriptor =
 {
   PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "Login_rsp",
+  "login_rsp",
   "LoginRsp",
   "LoginRsp",
   "",
@@ -589,44 +528,6 @@ const ProtobufCMessageDescriptor login_rsp__descriptor =
   login_rsp__field_indices_by_name,
   1,  login_rsp__number_ranges,
   (ProtobufCMessageInit) login_rsp__init,
-  NULL,NULL,NULL    /* reserved[123] */
-};
-static const ProtobufCFieldDescriptor connect_rsp__field_descriptors[1] =
-{
-  {
-    "success",
-    1,
-    PROTOBUF_C_LABEL_REQUIRED,
-    PROTOBUF_C_TYPE_BOOL,
-    0,   /* quantifier_offset */
-    offsetof(ConnectRsp, success),
-    NULL,
-    NULL,
-    0,             /* flags */
-    0,NULL,NULL    /* reserved1,reserved2, etc */
-  },
-};
-static const unsigned connect_rsp__field_indices_by_name[] = {
-  0,   /* field[0] = success */
-};
-static const ProtobufCIntRange connect_rsp__number_ranges[1 + 1] =
-{
-  { 1, 0 },
-  { 0, 1 }
-};
-const ProtobufCMessageDescriptor connect_rsp__descriptor =
-{
-  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "Connect_rsp",
-  "ConnectRsp",
-  "ConnectRsp",
-  "",
-  sizeof(ConnectRsp),
-  1,
-  connect_rsp__field_descriptors,
-  connect_rsp__field_indices_by_name,
-  1,  connect_rsp__number_ranges,
-  (ProtobufCMessageInit) connect_rsp__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
 static const ProtobufCFieldDescriptor enemy_msg__field_descriptors[3] =
@@ -681,7 +582,7 @@ static const ProtobufCIntRange enemy_msg__number_ranges[1 + 1] =
 const ProtobufCMessageDescriptor enemy_msg__descriptor =
 {
   PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "Enemy_msg",
+  "enemy_msg",
   "EnemyMsg",
   "EnemyMsg",
   "",
@@ -745,7 +646,7 @@ static const ProtobufCIntRange new_enemy__number_ranges[1 + 1] =
 const ProtobufCMessageDescriptor new_enemy__descriptor =
 {
   PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "New_enemy",
+  "new_enemy",
   "NewEnemy",
   "NewEnemy",
   "",
@@ -757,7 +658,7 @@ const ProtobufCMessageDescriptor new_enemy__descriptor =
   (ProtobufCMessageInit) new_enemy__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor game_start__field_descriptors[1] =
+static const ProtobufCFieldDescriptor start_require__field_descriptors[1] =
 {
   {
     "start",
@@ -765,34 +666,72 @@ static const ProtobufCFieldDescriptor game_start__field_descriptors[1] =
     PROTOBUF_C_LABEL_REQUIRED,
     PROTOBUF_C_TYPE_BOOL,
     0,   /* quantifier_offset */
-    offsetof(GameStart, start),
+    offsetof(StartRequire, start),
     NULL,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
 };
-static const unsigned game_start__field_indices_by_name[] = {
+static const unsigned start_require__field_indices_by_name[] = {
   0,   /* field[0] = start */
 };
-static const ProtobufCIntRange game_start__number_ranges[1 + 1] =
+static const ProtobufCIntRange start_require__number_ranges[1 + 1] =
 {
   { 1, 0 },
   { 0, 1 }
 };
-const ProtobufCMessageDescriptor game_start__descriptor =
+const ProtobufCMessageDescriptor start_require__descriptor =
 {
   PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "Game_start",
-  "GameStart",
-  "GameStart",
+  "start_require",
+  "StartRequire",
+  "StartRequire",
   "",
-  sizeof(GameStart),
+  sizeof(StartRequire),
   1,
-  game_start__field_descriptors,
-  game_start__field_indices_by_name,
-  1,  game_start__number_ranges,
-  (ProtobufCMessageInit) game_start__init,
+  start_require__field_descriptors,
+  start_require__field_indices_by_name,
+  1,  start_require__number_ranges,
+  (ProtobufCMessageInit) start_require__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor start_rsp__field_descriptors[1] =
+{
+  {
+    "start",
+    1,
+    PROTOBUF_C_LABEL_REQUIRED,
+    PROTOBUF_C_TYPE_BOOL,
+    0,   /* quantifier_offset */
+    offsetof(StartRsp, start),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned start_rsp__field_indices_by_name[] = {
+  0,   /* field[0] = start */
+};
+static const ProtobufCIntRange start_rsp__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 1 }
+};
+const ProtobufCMessageDescriptor start_rsp__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "start_rsp",
+  "StartRsp",
+  "StartRsp",
+  "",
+  sizeof(StartRsp),
+  1,
+  start_rsp__field_descriptors,
+  start_rsp__field_indices_by_name,
+  1,  start_rsp__number_ranges,
+  (ProtobufCMessageInit) start_rsp__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
 static const ProtobufCFieldDescriptor login_end__field_descriptors[1] =
@@ -821,7 +760,7 @@ static const ProtobufCIntRange login_end__number_ranges[1 + 1] =
 const ProtobufCMessageDescriptor login_end__descriptor =
 {
   PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "Login_end",
+  "login_end",
   "LoginEnd",
   "LoginEnd",
   "",

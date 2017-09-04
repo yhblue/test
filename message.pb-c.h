@@ -17,12 +17,11 @@ PROTOBUF_C__BEGIN_DECLS
 
 typedef struct _HeroMsg HeroMsg;
 typedef struct _LoginReq LoginReq;
-typedef struct _ConnectReq ConnectReq;
 typedef struct _LoginRsp LoginRsp;
-typedef struct _ConnectRsp ConnectRsp;
 typedef struct _EnemyMsg EnemyMsg;
 typedef struct _NewEnemy NewEnemy;
-typedef struct _GameStart GameStart;
+typedef struct _StartRequire StartRequire;
+typedef struct _StartRsp StartRsp;
 typedef struct _LoginEnd LoginEnd;
 
 
@@ -53,15 +52,6 @@ struct  _LoginReq
     , NULL }
 
 
-struct  _ConnectReq
-{
-  ProtobufCMessage base;
-};
-#define CONNECT_REQ__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&connect_req__descriptor) \
-     }
-
-
 struct  _LoginRsp
 {
   ProtobufCMessage base;
@@ -73,16 +63,6 @@ struct  _LoginRsp
 #define LOGIN_RSP__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&login_rsp__descriptor) \
     , 0, 0, 0, 0 }
-
-
-struct  _ConnectRsp
-{
-  ProtobufCMessage base;
-  protobuf_c_boolean success;
-};
-#define CONNECT_RSP__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&connect_rsp__descriptor) \
-    , 0 }
 
 
 struct  _EnemyMsg
@@ -109,13 +89,23 @@ struct  _NewEnemy
     , 0, 0, 0 }
 
 
-struct  _GameStart
+struct  _StartRequire
 {
   ProtobufCMessage base;
   protobuf_c_boolean start;
 };
-#define GAME_START__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&game_start__descriptor) \
+#define START_REQUIRE__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&start_require__descriptor) \
+    , 0 }
+
+
+struct  _StartRsp
+{
+  ProtobufCMessage base;
+  protobuf_c_boolean start;
+};
+#define START_RSP__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&start_rsp__descriptor) \
     , 0 }
 
 
@@ -167,25 +157,6 @@ LoginReq *
 void   login_req__free_unpacked
                      (LoginReq *message,
                       ProtobufCAllocator *allocator);
-/* ConnectReq methods */
-void   connect_req__init
-                     (ConnectReq         *message);
-size_t connect_req__get_packed_size
-                     (const ConnectReq   *message);
-size_t connect_req__pack
-                     (const ConnectReq   *message,
-                      uint8_t             *out);
-size_t connect_req__pack_to_buffer
-                     (const ConnectReq   *message,
-                      ProtobufCBuffer     *buffer);
-ConnectReq *
-       connect_req__unpack
-                     (ProtobufCAllocator  *allocator,
-                      size_t               len,
-                      const uint8_t       *data);
-void   connect_req__free_unpacked
-                     (ConnectReq *message,
-                      ProtobufCAllocator *allocator);
 /* LoginRsp methods */
 void   login_rsp__init
                      (LoginRsp         *message);
@@ -204,25 +175,6 @@ LoginRsp *
                       const uint8_t       *data);
 void   login_rsp__free_unpacked
                      (LoginRsp *message,
-                      ProtobufCAllocator *allocator);
-/* ConnectRsp methods */
-void   connect_rsp__init
-                     (ConnectRsp         *message);
-size_t connect_rsp__get_packed_size
-                     (const ConnectRsp   *message);
-size_t connect_rsp__pack
-                     (const ConnectRsp   *message,
-                      uint8_t             *out);
-size_t connect_rsp__pack_to_buffer
-                     (const ConnectRsp   *message,
-                      ProtobufCBuffer     *buffer);
-ConnectRsp *
-       connect_rsp__unpack
-                     (ProtobufCAllocator  *allocator,
-                      size_t               len,
-                      const uint8_t       *data);
-void   connect_rsp__free_unpacked
-                     (ConnectRsp *message,
                       ProtobufCAllocator *allocator);
 /* EnemyMsg methods */
 void   enemy_msg__init
@@ -262,24 +214,43 @@ NewEnemy *
 void   new_enemy__free_unpacked
                      (NewEnemy *message,
                       ProtobufCAllocator *allocator);
-/* GameStart methods */
-void   game_start__init
-                     (GameStart         *message);
-size_t game_start__get_packed_size
-                     (const GameStart   *message);
-size_t game_start__pack
-                     (const GameStart   *message,
+/* StartRequire methods */
+void   start_require__init
+                     (StartRequire         *message);
+size_t start_require__get_packed_size
+                     (const StartRequire   *message);
+size_t start_require__pack
+                     (const StartRequire   *message,
                       uint8_t             *out);
-size_t game_start__pack_to_buffer
-                     (const GameStart   *message,
+size_t start_require__pack_to_buffer
+                     (const StartRequire   *message,
                       ProtobufCBuffer     *buffer);
-GameStart *
-       game_start__unpack
+StartRequire *
+       start_require__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data);
-void   game_start__free_unpacked
-                     (GameStart *message,
+void   start_require__free_unpacked
+                     (StartRequire *message,
+                      ProtobufCAllocator *allocator);
+/* StartRsp methods */
+void   start_rsp__init
+                     (StartRsp         *message);
+size_t start_rsp__get_packed_size
+                     (const StartRsp   *message);
+size_t start_rsp__pack
+                     (const StartRsp   *message,
+                      uint8_t             *out);
+size_t start_rsp__pack_to_buffer
+                     (const StartRsp   *message,
+                      ProtobufCBuffer     *buffer);
+StartRsp *
+       start_rsp__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data);
+void   start_rsp__free_unpacked
+                     (StartRsp *message,
                       ProtobufCAllocator *allocator);
 /* LoginEnd methods */
 void   login_end__init
@@ -308,14 +279,8 @@ typedef void (*HeroMsg_Closure)
 typedef void (*LoginReq_Closure)
                  (const LoginReq *message,
                   void *closure_data);
-typedef void (*ConnectReq_Closure)
-                 (const ConnectReq *message,
-                  void *closure_data);
 typedef void (*LoginRsp_Closure)
                  (const LoginRsp *message,
-                  void *closure_data);
-typedef void (*ConnectRsp_Closure)
-                 (const ConnectRsp *message,
                   void *closure_data);
 typedef void (*EnemyMsg_Closure)
                  (const EnemyMsg *message,
@@ -323,8 +288,11 @@ typedef void (*EnemyMsg_Closure)
 typedef void (*NewEnemy_Closure)
                  (const NewEnemy *message,
                   void *closure_data);
-typedef void (*GameStart_Closure)
-                 (const GameStart *message,
+typedef void (*StartRequire_Closure)
+                 (const StartRequire *message,
+                  void *closure_data);
+typedef void (*StartRsp_Closure)
+                 (const StartRsp *message,
                   void *closure_data);
 typedef void (*LoginEnd_Closure)
                  (const LoginEnd *message,
@@ -337,12 +305,11 @@ typedef void (*LoginEnd_Closure)
 
 extern const ProtobufCMessageDescriptor hero_msg__descriptor;
 extern const ProtobufCMessageDescriptor login_req__descriptor;
-extern const ProtobufCMessageDescriptor connect_req__descriptor;
 extern const ProtobufCMessageDescriptor login_rsp__descriptor;
-extern const ProtobufCMessageDescriptor connect_rsp__descriptor;
 extern const ProtobufCMessageDescriptor enemy_msg__descriptor;
 extern const ProtobufCMessageDescriptor new_enemy__descriptor;
-extern const ProtobufCMessageDescriptor game_start__descriptor;
+extern const ProtobufCMessageDescriptor start_require__descriptor;
+extern const ProtobufCMessageDescriptor start_rsp__descriptor;
 extern const ProtobufCMessageDescriptor login_end__descriptor;
 
 PROTOBUF_C__END_DECLS
